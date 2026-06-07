@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - [测试] 增加首次配置向导保存、LLM 测试与首页配置入口回归测试。
 - [改进] Web/桌面界面固定为浅色主题，并移除主题切换入口与持久化主题选择。
 - [改进] 新增 macOS 本地一键启动脚本，自动准备 Python/Node 依赖、刷新 WebUI 静态资源并启动桌面端。
+- [改进] MVP 桌面导航暂时隐藏持仓模块，并移除 `/portfolio` 页面路由，聚焦首次配置与股票报告生成主流程。
 
 ## [3.20.0] - 2026-06-03
 

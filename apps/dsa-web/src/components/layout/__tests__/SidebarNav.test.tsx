@@ -64,7 +64,17 @@ describe('SidebarNav', () => {
 
     await screen.findByRole('link', { name: '选股' });
     const hrefs = screen.getAllByRole('link').map((link) => link.getAttribute('href'));
-    expect(hrefs.slice(0, 4)).toEqual(['/', '/chat', '/screening', '/portfolio']);
+    expect(hrefs.slice(0, 4)).toEqual(['/', '/chat', '/screening', '/backtest']);
+  });
+
+  it('does not show the portfolio navigation item in the MVP shell', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <SidebarNav />
+      </MemoryRouter>,
+    );
+
+    expect(screen.queryByRole('link', { name: '持仓' })).not.toBeInTheDocument();
   });
 
   it('refreshes the screening navigation item after any config save event', async () => {
