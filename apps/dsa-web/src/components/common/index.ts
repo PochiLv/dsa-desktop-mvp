@@ -28,6 +28,4 @@ export * from './ConfirmDialog';
 export * from '../layout/Shell';
 export * from '../layout/SidebarNav';
 export * from '../layout/ShellHeader';
-export * from '../theme/ThemeProvider';
-export * from '../theme/ThemeToggle';
 export * from './ParticleBackground';

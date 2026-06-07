@@ -684,7 +684,7 @@ const SettingsPage: React.FC = () => {
                     <p className="mt-1 text-xs leading-6 text-muted-text">
                       开启后左侧导航会显示“选股”；若适配层缺失，会先尝试受控自动安装，策略和候选生成来自 AlphaSift。
                     </p>
-                    <p className="mt-2 text-xs leading-6 text-amber-700 dark:text-amber-300">
+                    <p className="mt-2 text-xs leading-6 text-amber-700">
                       风险提示：选股结果仅用于研究和辅助判断，不构成投资建议；市场有风险，交易决策和损益由使用者自行承担。
                     </p>
                   </div>
@@ -809,7 +809,7 @@ const SettingsPage: React.FC = () => {
                   </div>
                 ) : null}
                 {WEB_BUILD_INFO.isFallbackVersion ? (
-                  <p className="text-xs leading-6 text-amber-700 dark:text-amber-300">
+                  <p className="text-xs leading-6 text-amber-700">
                     当前 package.json 仍为占位版本 0.0.0，页面已自动回退展示构建标识，避免误判旧资源仍在生效。
                   </p>
                 ) : null}
@@ -822,7 +822,7 @@ const SettingsPage: React.FC = () => {
               >
                 <div className="space-y-4">
                   {!isEnvBackupAllowed ? (
-                    <p className="text-xs leading-6 text-amber-700 dark:text-amber-300">
+                    <p className="text-xs leading-6 text-amber-700">
                       当前 Web 端未开启管理员鉴权，导出/导入 `.env` 备份功能已停用；请先将
                       `ADMIN_AUTH_ENABLED` 设为 `true` 并完成管理员登录后再使用。
                     </p>

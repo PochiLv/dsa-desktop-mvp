@@ -1,7 +1,6 @@
 import type React from 'react';
 import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
-import { ThemeToggle } from '../theme/ThemeToggle';
 
 type ShellHeaderProps = {
   collapsed: boolean;
@@ -49,8 +48,6 @@ export const ShellHeader: React.FC<ShellHeaderProps> = ({
           <p className="truncate text-sm font-semibold text-foreground">{current.title}</p>
           <p className="truncate text-xs text-secondary-text">{current.description}</p>
         </div>
-
-        <ThemeToggle />
       </div>
     </header>
   );

@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { ThemeProvider } from '../../theme/ThemeProvider';
 import { Shell } from '../Shell';
 
 const mockLogout = vi.fn().mockResolvedValue(undefined);
@@ -35,18 +34,15 @@ beforeAll(() => {
 });
 
 describe('Shell', () => {
-  it.skip('renders navigation, theme toggle and completion badge', () => {
+  it.skip('renders navigation and completion badge', () => {
     render(
       <MemoryRouter initialEntries={['/chat']}>
-        <ThemeProvider>
-          <Shell>
-            <div>page content</div>
-          </Shell>
-        </ThemeProvider>
+        <Shell>
+          <div>page content</div>
+        </Shell>
       </MemoryRouter>
     );
 
-    expect(screen.getAllByRole('button', { name: '切换主题' }).length).toBeGreaterThan(0);
     expect(screen.getByRole('link', { name: '问股' })).toBeInTheDocument();
     expect(screen.getByTestId('chat-completion-badge')).toBeInTheDocument();
     const logoutButton = screen.getByRole('button', { name: '退出' });
@@ -54,30 +50,12 @@ describe('Shell', () => {
     expect(logoutButton).toHaveClass('cursor-pointer');
   });
 
-  it.skip('opens the theme menu from the sidebar toggle', async () => {
-    render(
-      <MemoryRouter initialEntries={['/chat']}>
-        <ThemeProvider>
-          <Shell>
-            <div>page content</div>
-          </Shell>
-        </ThemeProvider>
-      </MemoryRouter>
-    );
-
-    fireEvent.click(screen.getAllByRole('button', { name: '切换主题' })[0]);
-
-    expect(await screen.findByRole('menu', { name: '主题模式' })).toBeInTheDocument();
-  });
-
   it('shows a confirmation dialog before logout', async () => {
     render(
       <MemoryRouter initialEntries={['/chat']}>
-        <ThemeProvider>
-          <Shell>
-            <div>page content</div>
-          </Shell>
-        </ThemeProvider>
+        <Shell>
+          <div>page content</div>
+        </Shell>
       </MemoryRouter>
     );
 

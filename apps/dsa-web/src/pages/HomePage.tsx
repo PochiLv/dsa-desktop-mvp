@@ -724,7 +724,7 @@ const HomePage: React.FC = () => {
                   type="button"
                   variant="secondary"
                   size="sm"
-                  onClick={() => navigate('/settings')}
+                  onClick={() => navigate('/setup')}
                 >
                   去配置
                 </Button>

@@ -373,7 +373,7 @@ describe('HomePage', () => {
     expect(await screen.findByText('开始分析')).toBeInTheDocument();
   });
 
-  it('shows first-run setup gaps and links to settings', async () => {
+  it('shows first-run setup gaps and links to the setup wizard', async () => {
     vi.mocked(historyApi.getList).mockResolvedValue({
       total: 0,
       page: 1,
@@ -414,7 +414,7 @@ describe('HomePage', () => {
     expect(await screen.findByText('基础配置未完成')).toBeInTheDocument();
     expect(screen.getByText(/LLM 主渠道、自选股/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: '去配置' }));
-    expect(navigateMock).toHaveBeenCalledWith('/settings');
+    expect(navigateMock).toHaveBeenCalledWith('/setup');
   });
 
   it('navigates to chat with report context when asking a follow-up question', async () => {

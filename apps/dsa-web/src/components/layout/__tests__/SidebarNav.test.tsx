@@ -5,9 +5,6 @@ import { SidebarNav } from '../SidebarNav';
 
 const mockLogout = vi.fn().mockResolvedValue(undefined);
 const mockGetAlphaSiftStatus = vi.fn().mockResolvedValue({ enabled: false, available: false, installSpecIsDefault: false });
-const mockThemeToggle = vi.fn(({ collapsed }: { collapsed?: boolean }) => (
-  <button type="button">{collapsed ? '切换主题(折叠)' : '切换主题'}</button>
-));
 
 const completionBadgeState = { value: true };
 
@@ -29,10 +26,6 @@ vi.mock('../../../api/alphasift', () => ({
   alphasiftApi: {
     getStatus: () => mockGetAlphaSiftStatus(),
   },
-}));
-
-vi.mock('../../theme/ThemeToggle', () => ({
-  ThemeToggle: (props: { collapsed?: boolean }) => mockThemeToggle(props),
 }));
 
 describe('SidebarNav', () => {
@@ -112,19 +105,6 @@ describe('SidebarNav', () => {
     );
 
     expect(screen.queryByTestId('chat-completion-badge')).not.toBeInTheDocument();
-  });
-
-  it('renders the collapsed theme toggle variant when the sidebar is collapsed', () => {
-    render(
-      <MemoryRouter initialEntries={['/']}>
-        <SidebarNav collapsed />
-      </MemoryRouter>,
-    );
-
-    expect(mockThemeToggle).toHaveBeenCalledWith(
-      expect.objectContaining({ variant: 'nav', collapsed: true }),
-    );
-    expect(screen.getByRole('button', { name: '切换主题(折叠)' })).toBeInTheDocument();
   });
 
   it('renders the alerts navigation item and marks it active', () => {

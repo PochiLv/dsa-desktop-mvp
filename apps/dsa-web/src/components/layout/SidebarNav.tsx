@@ -8,7 +8,6 @@ import { useAgentChatStore } from '../../stores/agentChatStore';
 import { cn } from '../../utils/cn';
 import { ConfirmDialog } from '../common/ConfirmDialog';
 import { StatusDot } from '../common/StatusDot';
-import { ThemeToggle } from '../theme/ThemeToggle';
 
 type SidebarNavProps = {
   collapsed?: boolean;
@@ -128,10 +127,6 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({ collapsed = false, onNav
           </NavLink>
         ))}
       </nav>
-
-      <div className="mt-4 mb-2">
-        <ThemeToggle variant="nav" collapsed={collapsed} />
-      </div>
 
       {authEnabled ? (
         <button
